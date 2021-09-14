@@ -12,7 +12,7 @@ from HHAnalysisModule import *
 from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetHelperRun2 import *
 from CheckYear_Samples import CheckYear
 
-testfile = "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GluGluToRadionToHHTo2G4Q_M-3000_narrow_TuneCP5_PSWeights_13TeV-madgraph-pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/120000/DB64186F-0685-E445-ACF2-0C039BFD6301.root"
+testfile = "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GluGluToRadionToHHTo2G4Q_M-2500_narrow_TuneCP5_PSWeights_13TeV-madgraph-pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/230000/EFB88150-4692-6346-BDA7-55987A5E4E44.root"
 
 
 entriesToRun = 0  # 0 if need to run over all entries else put number of entries to run

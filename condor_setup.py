@@ -13,7 +13,7 @@ parser.add_argument('--DASNames', type=str,
                     help='''Text file name, where all DAS names are added
                      on which condor jobs need to be submitted.''')
 parser.add_argument('--OutputPath', type=str,
-                    default='/eos/user/r/rasharma/post_doc_ihep/double-higgs/ntuples/ResonantAna/nanoAOD_skim/',
+                    default='/eos/user/z/zhenxuan/double-higgs/ntuples/ResonantAna/nanoAOD_skim/',
                     help='''
                     ''')
 parser.add_argument('--condorQueue', type=str,
@@ -69,7 +69,10 @@ CMSSWRel = cmsswDirPath.split("/")[-1]
 import fileshelper
 dirsToCreate = fileshelper.FileHelper('condor_logs/'+StringToChange, Initial_path)
 output_log_path = dirsToCreate.CreateLogDirWithDate()
-storeDir = dirsToCreate.CreateSotreArea(Initial_path)
+# storeDir = dirsToCreate.CreateSotreArea(Initial_path)
+# storeDir = os.makedirs(Initial_path)
+storeDir = Initial_path
+os.makedirs(Initial_path)
 dirName = dirsToCreate.dirName
 
 # create tarball of present working CMSSW base directory
@@ -170,6 +173,7 @@ outScript.write("\n" + 'rm *.root')
 outScript.write("\n" + 'scramv1 b ProjectRename')
 outScript.write("\n" + 'eval `scram runtime -sh`')
 outScript.write("\n" + 'sed -i "s/testfile = .*/testfile = \\"${1}\\"/g" ' + args.postProc)
+args.entriesToRun = str(args.entriesToRun)
 outScript.write("\n" + 'sed -i "s/entriesToRun = .*/entriesToRun = ' + args.entriesToRun+ '/g" ' + args.postProc)
 outScript.write("\n" + 'echo "========================================="')
 outScript.write("\n" + 'echo "cat ' + args.postProc + '"')
